@@ -38,7 +38,8 @@ class CalcCommand extends Command
         $colour_depth = (int) $this->argument("colour_depth");
         $refresh_rate = (int) $this->argument("refresh_rate");
         $overhead = (float) $this->argument("overhead");
-        $math = $width * $height * $colour_depth * $refresh_rate * $overhead;
+        $math =  $width * $height * $colour_depth * $refresh_rate * $overhead;
+        $math = (string) $math;
 
         render($math);
     }
