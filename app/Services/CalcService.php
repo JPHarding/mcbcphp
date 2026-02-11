@@ -60,19 +60,19 @@ final class CalcService
     {
         foreach (self::$maxHdmiBandwidthGbps as $hdmiVersion => $supportedBandwidth) {
             if ($supportedBandwidth >= $calculatedBandwidth) {
-                return $hdmiVersion;
+                return $hdmiVersion . " at " . $supportedBandwidth . "Gbps";
             }
         }
-        return "Error with HDMI Bandwidth Calculation";
+        return "Error with HDMI Bandwidth Calculation or not cable can support this resolution.";
     }
 
     public function calculateMinDisplayPortCableVersion(float $calculatedBandwidth): string
     {
         foreach (self::$maxDisplayPortBandwidthGbps as $displayPortVersion => $supportedBandwidth) {
             if ($supportedBandwidth >= $calculatedBandwidth) {
-                return $displayPortVersion;
+                return (string) $displayPortVersion . " at " . $supportedBandwidth  . "Gbps";
             }
         }
-        return "Error with DisplayPort Bandwidth Calculation";
+        return "Error with DisplayPort Bandwidth Calculation or not cable can support this resolution.";
     }
 }
