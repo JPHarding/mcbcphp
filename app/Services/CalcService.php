@@ -51,7 +51,7 @@ final class CalcService
             $effectiveColourDepth = $colourDepth * $rate;
 
             $bandwidth = $width * $height * $effectiveColourDepth * $refreshRate * $overhead;
-            $bandwidths[$sample] = (float) $bandwidth;
+            $bandwidths[$sample] = (float) round($bandwidth / 1000000000, 2);
         }
         return $bandwidths;
     }
